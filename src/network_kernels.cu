@@ -42,28 +42,6 @@ float * get_network_output_gpu_layer(network net, int i);
 float * get_network_delta_gpu_layer(network net, int i);
 float * get_network_output_gpu(network net);
 
-void cudaMemInfo(layer l, int i)
-{
-    size_t free_byte ;
-    size_t total_byte ;
-
-    cuda_status = cudaMemGetInfo( &free_byte, &total_byte);
-
-    if (cudaSuccess != cuda_status){
-        printf( "Error: cudaMemGetInfo fails, %s \n", cudaGetErrorString(cuda_status));
-
-        exit(1);
-    }
-
-    double free_db = (double) free_byte;
-    double total_byte = (double)total_byte;
-    double used_db = total_db - free_db ;
-    if( i == 0) printf("Before layer %15s\n", get_layer_string(l.type));
-    else printf("After layer %15s\n", get_layer_string(l.type));
-    printf"GPU memory usage: used = %f, free = %f MB, total = %f MB\n",\
-    used_db/1024.0/1024.0, free_db/1024.0/1024.0, total_db/1024.0/1024.0);
-
-}
 void forward_network_gpu(network net, network_state state)
 {
     //cudaDeviceSynchronize();
@@ -82,9 +60,7 @@ void forward_network_gpu(network net, network_state state)
         CHECK_CUDA(cudaDeviceSynchronize());
         printf("layer: %3d type: %15s - Predicted in %8.5f milli-seconds.\n", i, get_layer_string(l.type), ((double)get_time_point() -time) / 1000);
 #else   
-        cudaMemInfo(l, 0);
         l.forward_gpu(l, state);
-        cudaMemInfo(l,1);
 #endif 
         if(net.wait_stream)
             cudaStreamSynchronize(get_cuda_stream());
