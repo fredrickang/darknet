@@ -220,6 +220,10 @@ char *get_layer_string(LAYER_TYPE a)
             return "normalization";
         case BATCHNORM:
             return "batchnorm";
+        case YOLO:
+            return "yolo";
+        case UPSAMPLE:
+            return "upsample";
         default:
             break;
     }
@@ -254,9 +258,9 @@ void forward_network(network net, network_state state)
         if(l.delta && state.train){
             scal_cpu(l.outputs * l.batch, 0, l.delta, 1);
         }
-        //double time = get_time_point();
+        double time = get_time_point();
         l.forward(l, state);
-        //printf("%d - Predicted in %lf milli-seconds.\n", i, ((double)get_time_point() - time) / 1000);
+        printf("layer: %3d type: %15s - Predicted in %10.3f milli-seconds.\n", i ,get_layer_string(l.type), ((double)get_time_point() - time) / 1000);
         state.input = l.output;
     }
 }

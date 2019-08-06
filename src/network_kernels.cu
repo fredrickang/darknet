@@ -54,11 +54,11 @@ void forward_network_gpu(network net, network_state state)
         if(l.delta_gpu && state.train){
             fill_ongpu(l.outputs * l.batch, 0, l.delta_gpu, 1);
         }
-        //printf("\n layer %d - type: %d - \n", i, l.type);
-        //start_timer();
+        
+        double time  = get_time_point();
         l.forward_gpu(l, state);
-        //CHECK_CUDA(cudaDeviceSynchronize());
-        //stop_timer_and_show();
+        CHECK_CUDA(cudaDeviceSynchronize());
+        printf("layer: %3d type: %15s - Predicted in %8.5f milli-seconds.\n", i, get_layer_string(l.type), ((double)get_time_point() -time) / 1000);
 
         if(net.wait_stream)
             cudaStreamSynchronize(get_cuda_stream());

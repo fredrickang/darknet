@@ -1281,7 +1281,8 @@ void test_detector(char *datacfg, char *cfgfile, char *weightfile, char *filenam
     if (weightfile) {
         load_weights(&net, weightfile);
     }
-    fuse_conv_batchnorm(net);
+  // Our approach should not use layer fusion  
+  // fuse_conv_batchnorm(net);
     calculate_binary_weights(net);
     if (net.layers[net.n - 1].classes != names_size) {
         printf(" Error: in the file %s number of names %d that isn't equal to classes=%d in the file %s \n",
