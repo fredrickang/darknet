@@ -1753,7 +1753,7 @@ void im2col_cpu_custom_bin(float* data_im,
 void activate_array_cpu_custom(float *x, const int n, const ACTIVATION a)
 {   
 #ifdef EXE_TIME
-    double time = get_time_point()
+    double time = get_time_point();
 #endif
     int i = 0;
     if (a == LINEAR)

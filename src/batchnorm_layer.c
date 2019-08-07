@@ -128,7 +128,7 @@ void resize_batchnorm_layer(layer *layer, int w, int h)
 void forward_batchnorm_layer(layer l, network_state state)
 {
 #ifdef EXE_TIME
-    double time = get_time_point()
+    double time = get_time_point();
 #endif
     if(l.type == BATCHNORM) copy_cpu(l.outputs*l.batch, state.input, 1, l.output, 1);
     if(l.type == CONNECTED){

@@ -235,7 +235,7 @@ static box float_to_box_stride(float *f, int stride)
 void forward_yolo_layer(const layer l, network_state state)
 {
 #ifdef EXE_TIME
-    double time = get_time_point()
+    double time = get_time_point();
 #endif
 
     int i, j, b, t, n;

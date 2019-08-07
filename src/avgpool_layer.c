@@ -39,6 +39,9 @@ void resize_avgpool_layer(avgpool_layer *l, int w, int h)
 
 void forward_avgpool_layer(const avgpool_layer l, network_state state)
 {
+#ifdef EXE_TIME
+    double time = get_time_point();
+#endif
     int b,i,k;
 
     for(b = 0; b < l.batch; ++b){
@@ -52,6 +55,9 @@ void forward_avgpool_layer(const avgpool_layer l, network_state state)
             l.output[out_index] /= l.h*l.w;
         }
     }
+#ifdef EXE_TIME
+    printf("layer: Avgpool - Performed in %10.3f milli-seconds.\n", ((double)get_time_point() - time) / 1000);
+#endif
 }
 
 void backward_avgpool_layer(const avgpool_layer l, network_state state)
