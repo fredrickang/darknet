@@ -100,6 +100,9 @@ float activate(float x, ACTIVATION a)
 
 void activate_array(float *x, const int n, const ACTIVATION a)
 {
+#ifdef EXE_TIME
+    double time = get_time_point()
+#endif
     int i;
     if (a == LINEAR) {}
     else if (a == LEAKY) {
@@ -119,6 +122,9 @@ void activate_array(float *x, const int n, const ACTIVATION a)
             x[i] = activate(x[i], a);
         }
     }
+#ifdef EXE_TIME
+    printf("layer: Activation - Performed in %10.3f milli-seconds.\n", ((double)get_time_point() - time) / 1000);
+#endif
 }
 
 void activate_array_swish(float *x, const int n, float * output_sigmoid, float * output)

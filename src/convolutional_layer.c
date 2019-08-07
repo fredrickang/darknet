@@ -886,7 +886,10 @@ size_t binary_transpose_align_input(int k, int n, float *b, char **t_bit_input, 
 
 
 void forward_convolutional_layer(convolutional_layer l, network_state state)
-{
+{   
+#ifdef EXE_TIME
+    double time = get_time_point();
+#endif
     int out_h = convolutional_out_height(l);
     int out_w = convolutional_out_width(l);
     int i, j;
@@ -1065,7 +1068,9 @@ void forward_convolutional_layer(convolutional_layer l, network_state state)
             //state.input += l.c*l.h*l.w;
         }
     }
-
+#ifdef EXE_TIME
+    printf("layer: Convolution - Performed in %10.3f milli-seconds.\n", ((double)get_time_point() - time) / 1000);
+#endif
     if(l.batch_normalize){
         forward_batchnorm_layer(l, state);
     }

@@ -234,6 +234,10 @@ static box float_to_box_stride(float *f, int stride)
 
 void forward_yolo_layer(const layer l, network_state state)
 {
+#ifdef EXE_TIME
+    double time = get_time_point()
+#endif
+
     int i, j, b, t, n;
     memcpy(l.output, state.input, l.outputs*l.batch * sizeof(float));
 
@@ -404,6 +408,9 @@ void forward_yolo_layer(const layer l, network_state state)
         *(l.cost) = avg_iou_loss + classification_loss;
     }
     printf("v3 (%s loss, Normalizer: (iou: %f, cls: %f) Region %d Avg (IOU: %f, GIOU: %f), Class: %f, Obj: %f, No Obj: %f, .5R: %f, .75R: %f, count: %d\n", (l.iou_loss == MSE ? "mse" : (l.iou_loss == GIOU ? "giou" : "iou")), l.iou_normalizer, l.cls_normalizer, state.index, tot_iou / count, tot_giou / count, avg_cat / class_count, avg_obj / count, avg_anyobj / (l.w*l.h*l.n*l.batch), recall / count, recall75 / count, count);
+#ifdef EXE_TIME
+    printf("layer: Yolo - Performed in %10.3f milli-seconds.\n", ((double)get_time_point() - time) / 1000);
+#endif
 }
 
 void backward_yolo_layer(const layer l, network_state state)
