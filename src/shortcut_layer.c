@@ -61,7 +61,7 @@ void resize_shortcut_layer(layer *l, int w, int h)
 void forward_shortcut_layer(const layer l, network_state state)
 {   
 #ifdef EXE_TIME
-    double time = get_time_point()
+    double time = get_time_point();
 #endif
     if (l.w == l.out_w && l.h == l.out_h && l.c == l.out_c) {
         int size = l.batch * l.w * l.h * l.c;
