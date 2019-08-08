@@ -77,7 +77,7 @@ void forward_upsample_layer(const layer l, network_state net)
         upsample_cpu(net.input, l.w, l.h, l.c, l.batch, l.stride, 1, l.scale, l.output);
     }
 #ifdef EXE_TIME
-    printf("layer: Upsample - Performed in %10.3f milli-seconds.\n", ((double)get_time_point() - time) / 1000);
+    printf("Upsample - Performed in %10.3f milli-seconds.\n", ((double)get_time_point() - time) / 1000);
 #endif
 }
 

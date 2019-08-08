@@ -152,7 +152,7 @@ void forward_batchnorm_layer(layer l, network_state state)
     }
     scale_bias(l.output, l.scales, l.batch, l.out_c, l.out_h*l.out_w);
 #ifdef EXE_TIME
-    printf("layer: Batchnorm - Performed in %10.3f milli-seconds.\n", ((double)get_time_point() - time) / 1000);
+    printf("Batchnorm - Performed in %10.3f milli-seconds.\n", ((double)get_time_point() - time) / 1000);
 #endif
 }
 

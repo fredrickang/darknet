@@ -1787,7 +1787,7 @@ void activate_array_cpu_custom(float *x, const int n, const ACTIVATION a)
         }
     }
 #ifdef EXE_TIME
-    printf("layer: Activation - Performed in %10.3f milli-seconds.\n", ((double)get_time_point() - time) / 1000);
+    printf("Activation - Performed in %10.3f milli-seconds.\n", ((double)get_time_point() - time) / 1000);
 #endif
 }
 

@@ -87,7 +87,7 @@ void forward_route_layer(const route_layer l, network_state state)
         offset += input_size;
     }
 #ifdef EXE_TIME
-    printf("layer: Route - Performed in %10.3f milli-seconds.\n", ((double)get_time_point() - time) / 1000);
+    printf("Route - Performed in %10.3f milli-seconds.\n", ((double)get_time_point() - time) / 1000);
 #endif
 }
 

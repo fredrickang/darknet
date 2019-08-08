@@ -75,7 +75,7 @@ void forward_shortcut_layer(const layer l, network_state state)
         shortcut_cpu(l.batch, l.w, l.h, l.c, state.net.layers[l.index].output, l.out_w, l.out_h, l.out_c, l.output);
     }
 #ifdef EXE_TIME
-    printf("layer: Shortcut - Performed in %10.3f milli-seconds.\n", ((double)get_time_point() - time) / 1000);
+    printf("Shortcut - Performed in %10.3f milli-seconds.\n", ((double)get_time_point() - time) / 1000);
 #endif
     activate_array(l.output, l.outputs*l.batch, l.activation);
 }
