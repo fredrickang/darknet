@@ -2351,6 +2351,9 @@ void im2col_cpu_custom_bin(float* data_im,
 
 void activate_array_cpu_custom(float *x, const int n, const ACTIVATION a)
 {
+#ifdef EXE_TIME
+    double time = get_time_point();
+#endif
     int i;
     if (a == LINEAR)
     {
@@ -2366,6 +2369,9 @@ void activate_array_cpu_custom(float *x, const int n, const ACTIVATION a)
             x[i] = activate(x[i], a);
         }
     }
+#ifdef EXE_TIME
+    printf("Activation - Performed in %10.3f milli-seconds.\n", ((double)get_time_point() - time) / 1000);
+#endif
 }
 
 void float_to_bit(float *src, unsigned char *dst, size_t size)
