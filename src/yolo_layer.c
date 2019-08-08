@@ -252,7 +252,6 @@ void forward_yolo_layer(const layer l, network_state state)
         }
     }
 #endif
-
     memset(l.delta, 0, l.outputs * l.batch * sizeof(float));
     if (!state.train) return;
     //float avg_iou = 0;

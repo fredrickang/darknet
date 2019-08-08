@@ -101,7 +101,7 @@ float activate(float x, ACTIVATION a)
 void activate_array(float *x, const int n, const ACTIVATION a)
 {
 #ifdef EXE_TIME
-    double time = get_time_point()
+    double time = get_time_point();
 #endif
     int i;
     if (a == LINEAR) {}
