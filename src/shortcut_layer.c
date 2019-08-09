@@ -93,8 +93,15 @@ void forward_shortcut_layer_gpu(const layer l, network_state state)
     //copy_ongpu(l.outputs*l.batch, state.input, 1, l.output_gpu, 1);
     //simple_copy_ongpu(l.outputs*l.batch, state.input, l.output_gpu);
     //shortcut_gpu(l.batch, l.w, l.h, l.c, state.net.layers[l.index].output_gpu, l.out_w, l.out_h, l.out_c, l.output_gpu);
+#ifdef EXE_TIME
+    double time = get_time_point()
+#endif
     input_shortcut_gpu(state.input, l.batch, l.w, l.h, l.c, state.net.layers[l.index].output_gpu, l.out_w, l.out_h, l.out_c, l.output_gpu);
+#ifdef EXE_TIME 
+    printf("Shortcut - Performed in %10.3f milli-seconds.\n", ((double)get_time_point() - time) / 1000);  
+#endif   
     activate_array_ongpu(l.output_gpu, l.outputs*l.batch, l.activation);
+
 }
 
 void backward_shortcut_layer_gpu(const layer l, network_state state)

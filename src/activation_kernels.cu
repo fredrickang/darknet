@@ -313,6 +313,9 @@ __global__ void gradient_array_relu_kernel(float *x, int n, float *delta)
 
 extern "C" void activate_array_ongpu(float *x, int n, ACTIVATION a)
 {
+#ifdef EXE_TIME
+    double time = get_time_point()
+#endif
     const int num_blocks = get_number_of_blocks(n, BLOCK);
     if (a == LINEAR) return;
     else if(a == LEAKY) activate_array_leaky_kernel << <num_blocks, BLOCK, 0, get_cuda_stream() >> >(x, n);
@@ -324,6 +327,9 @@ extern "C" void activate_array_ongpu(float *x, int n, ACTIVATION a)
     else
         activate_array_kernel<<<cuda_gridsize(n), BLOCK, 0, get_cuda_stream()>>>(x, n, a);
     CHECK_CUDA(cudaPeekAtLastError());
+#ifdef EXE_TIME
+    printf("Activation - Performed in %10.3f milli-seconds.\n", ((double)get_time_point() - time) / 1000); 
+#endif
 }
 
 extern "C" void activate_array_swish_ongpu(float *x, int n, float *output_sigmoid_gpu, float *output_gpu)

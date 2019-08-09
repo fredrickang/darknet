@@ -109,6 +109,9 @@ void backward_route_layer(const route_layer l, network_state state)
 #ifdef GPU
 void forward_route_layer_gpu(const route_layer l, network_state state)
 {
+#ifdef EXE_TIME
+    double time = get_time_point()
+#endif
     int i, j;
     int offset = 0;
     for(i = 0; i < l.n; ++i){
@@ -121,6 +124,9 @@ void forward_route_layer_gpu(const route_layer l, network_state state)
         }
         offset += input_size;
     }
+#ifdef EXE_TIME
+    printf("Route - Performed in %10.3f milli-seconds.\n", ((double)get_time_point() - time) / 1000);   
+#endif 
 }
 
 void backward_route_layer_gpu(const route_layer l, network_state state)

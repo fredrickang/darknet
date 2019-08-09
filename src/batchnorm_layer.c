@@ -185,6 +185,9 @@ void push_batchnorm_layer(layer l)
 
 void forward_batchnorm_layer_gpu(layer l, network_state state)
 {
+#ifdef EXE_TIME
+    double time = get_time_point();
+#endif
     if (l.type == BATCHNORM) simple_copy_ongpu(l.outputs*l.batch, state.input, l.output_gpu);
         //copy_ongpu(l.outputs*l.batch, state.input, 1, l.output_gpu, 1);
 
@@ -242,7 +245,9 @@ void forward_batchnorm_layer_gpu(layer l, network_state state)
         scale_bias_gpu(l.output_gpu, l.scales_gpu, l.batch, l.out_c, l.out_h*l.out_w);
         add_bias_gpu(l.output_gpu, l.biases_gpu, l.batch, l.out_c, l.out_w*l.out_h);
     }
-
+#ifdef EXE_TIME
+    printf("Batchnorm - Performed in %10.3f milli-seconds.\n", ((double)get_time_point() - time) / 1000);
+#endif
 }
 
 void backward_batchnorm_layer_gpu(layer l, network_state state)

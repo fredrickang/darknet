@@ -530,6 +530,9 @@ int get_yolo_detections(layer l, int w, int h, int netw, int neth, float thresh,
 
 void forward_yolo_layer_gpu(const layer l, network_state state)
 {
+#ifdef EXE_TIME
+    double time = get_time_point()
+#endif
     //copy_ongpu(l.batch*l.inputs, state.input, 1, l.output_gpu, 1);
     simple_copy_ongpu(l.batch*l.inputs, state.input, l.output_gpu);
     int b, n;
@@ -550,6 +553,9 @@ void forward_yolo_layer_gpu(const layer l, network_state state)
         //cuda_pull_array(l.output_gpu, l.output, l.batch*l.outputs);
         cuda_pull_array_async(l.output_gpu, l.output, l.batch*l.outputs);
         CHECK_CUDA(cudaPeekAtLastError());
+#ifdef EXE_TIME
+        printf("Yolo - Performed in %10.3f milli-seconds.\n", ((double)get_time_point() - time) / 1000); 
+#endif
         return;
     }
 

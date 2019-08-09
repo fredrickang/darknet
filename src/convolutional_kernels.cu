@@ -164,6 +164,9 @@ half *cuda_make_f16_from_f32_array(float *src, size_t n)
 
 void forward_convolutional_layer_gpu(convolutional_layer l, network_state state)
 {
+#ifdef EXE_TIME
+    double time = get_time_point()
+#endif
     //fill_ongpu(l.outputs*l.batch, 0, l.output_gpu, 1);
     if(l.binary){
         binarize_weights_gpu(l.weights_gpu, l.n, (l.c / l.groups)*l.size*l.size, l.binary_weights_gpu);
@@ -537,7 +540,9 @@ void forward_convolutional_layer_gpu(convolutional_layer l, network_state state)
             &beta,  //&one,
             l.dstTensorDesc,
             l.output_gpu));
-
+#ifdef EXE_TIME
+    printf("Convolution - Performed in %10.3f milli-seconds.\n", ((double)get_time_point() - time) / 1000);
+#endif 
         //cudaDeviceSynchronize();
         if (l.batch_normalize) {
             forward_batchnorm_layer_gpu(l, state);
@@ -583,7 +588,9 @@ void forward_convolutional_layer_gpu(convolutional_layer l, network_state state)
             gemm_ongpu(0, 0, m, n, k, 1, a, k, b, n, 1, c, n);
         }
     }
-
+#ifdef EXE_TIME
+    printf("Convolution - Performed in %10.3f milli-seconds.\n", ((double)get_time_point() - time) / 1000);
+#endif 
     if (l.batch_normalize) {
         forward_batchnorm_layer_gpu(l, state);
     }
@@ -594,10 +601,15 @@ void forward_convolutional_layer_gpu(convolutional_layer l, network_state state)
 
 //#ifndef CUDNN_HALF
 //#endif // no CUDNN_HALF
-
+#ifdef EXE_TIME
+    time = get_time_point()
+#endif
     if (l.activation == SWISH) activate_array_swish_ongpu(l.output_gpu, l.outputs*l.batch, l.output_sigmoid_gpu, l.output_gpu);
     else if (l.activation != LINEAR) activate_array_ongpu(l.output_gpu, l.outputs*l.batch, l.activation);
     //if(l.dot > 0) dot_error_gpu(l);
+#ifdef EXE_TIME
+    printf("Activation - Performed in %10.3f milli-seconds.\n", ((double)get_time_point() - time) / 1000);
+#endif
     if(l.binary || l.xnor) swap_binary(&l);
     //cudaDeviceSynchronize();    // for correct profiling of performance
 
