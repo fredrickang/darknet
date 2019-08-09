@@ -94,7 +94,7 @@ void backward_upsample_layer(const layer l, network_state state)
 void forward_upsample_layer_gpu(const layer l, network_state state)
 {
 #ifdef EXE_TIME
-    double time = get_time_point()
+    double time = get_time_point();
 #endif
     fill_ongpu(l.outputs*l.batch, 0, l.output_gpu, 1);
     if(l.reverse){

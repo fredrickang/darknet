@@ -58,7 +58,7 @@ void backward_activation_layer(layer l, network_state state)
 void forward_activation_layer_gpu(layer l, network_state state)
 {
 #ifdef EXE_TIME
-    double time = get_time_point()
+    double time = get_time_point();
 #endif
     copy_ongpu(l.outputs*l.batch, state.input, 1, l.output_gpu, 1);
     activate_array_ongpu(l.output_gpu, l.outputs*l.batch, l.activation);

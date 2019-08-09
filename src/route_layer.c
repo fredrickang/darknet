@@ -110,7 +110,7 @@ void backward_route_layer(const route_layer l, network_state state)
 void forward_route_layer_gpu(const route_layer l, network_state state)
 {
 #ifdef EXE_TIME
-    double time = get_time_point()
+    double time = get_time_point();
 #endif
     int i, j;
     int offset = 0;

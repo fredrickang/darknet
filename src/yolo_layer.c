@@ -531,7 +531,7 @@ int get_yolo_detections(layer l, int w, int h, int netw, int neth, float thresh,
 void forward_yolo_layer_gpu(const layer l, network_state state)
 {
 #ifdef EXE_TIME
-    double time = get_time_point()
+    double time = get_time_point();
 #endif
     //copy_ongpu(l.batch*l.inputs, state.input, 1, l.output_gpu, 1);
     simple_copy_ongpu(l.batch*l.inputs, state.input, l.output_gpu);

@@ -601,15 +601,9 @@ void forward_convolutional_layer_gpu(convolutional_layer l, network_state state)
 
 //#ifndef CUDNN_HALF
 //#endif // no CUDNN_HALF
-#ifdef EXE_TIME
-    time = get_time_point();
-#endif
     if (l.activation == SWISH) activate_array_swish_ongpu(l.output_gpu, l.outputs*l.batch, l.output_sigmoid_gpu, l.output_gpu);
     else if (l.activation != LINEAR) activate_array_ongpu(l.output_gpu, l.outputs*l.batch, l.activation);
     //if(l.dot > 0) dot_error_gpu(l);
-#ifdef EXE_TIME
-    printf("Activation - Performed in %10.3f milli-seconds.\n", ((double)get_time_point() - time) / 1000);
-#endif
     if(l.binary || l.xnor) swap_binary(&l);
     //cudaDeviceSynchronize();    // for correct profiling of performance
 

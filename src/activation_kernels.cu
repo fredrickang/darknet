@@ -314,10 +314,10 @@ __global__ void gradient_array_relu_kernel(float *x, int n, float *delta)
 extern "C" void activate_array_ongpu(float *x, int n, ACTIVATION a)
 {
 #ifdef EXE_TIME
-    double time = get_time_point()
+    double time = get_time_point();
 #endif
     const int num_blocks = get_number_of_blocks(n, BLOCK);
-    if (a == LINEAR) return;
+    if (a == LINEAR) {}
     else if(a == LEAKY) activate_array_leaky_kernel << <num_blocks, BLOCK, 0, get_cuda_stream() >> >(x, n);
     else if (a == LOGISTIC) activate_array_logistic_kernel << <num_blocks, BLOCK, 0, get_cuda_stream() >> >(x, n);
     else if (a == TANH) activate_array_tanh_kernel << <num_blocks, BLOCK, 0, get_cuda_stream() >> >(x, n);
