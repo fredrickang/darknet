@@ -165,7 +165,7 @@ half *cuda_make_f16_from_f32_array(float *src, size_t n)
 void forward_convolutional_layer_gpu(convolutional_layer l, network_state state)
 {
 #ifdef EXE_TIME
-    double time = get_time_point()
+    double time = get_time_point();
 #endif
     //fill_ongpu(l.outputs*l.batch, 0, l.output_gpu, 1);
     if(l.binary){
@@ -602,7 +602,7 @@ void forward_convolutional_layer_gpu(convolutional_layer l, network_state state)
 //#ifndef CUDNN_HALF
 //#endif // no CUDNN_HALF
 #ifdef EXE_TIME
-    time = get_time_point()
+    time = get_time_point();
 #endif
     if (l.activation == SWISH) activate_array_swish_ongpu(l.output_gpu, l.outputs*l.batch, l.output_sigmoid_gpu, l.output_gpu);
     else if (l.activation != LINEAR) activate_array_ongpu(l.output_gpu, l.outputs*l.batch, l.activation);
