@@ -467,7 +467,10 @@ void forward_convolutional_layer_gpu(convolutional_layer l, network_state state)
             l.dstTensorDesc16,
             output16));
 
-
+#ifdef EXE_TIME
+        printf("Convolution - Performed in %10.3f milli-seconds.\n", ((double)get_time_point() - time) / 1000);
+        time = get_time_point();
+#endif
         if (l.batch_normalize)
         {
             if (state.train) // Training
@@ -507,6 +510,9 @@ void forward_convolutional_layer_gpu(convolutional_layer l, network_state state)
                 scale_bias_gpu(l.output_gpu, l.scales_gpu, l.batch, l.out_c, l.out_h*l.out_w);
                 add_bias_gpu(l.output_gpu, l.biases_gpu, l.batch, l.out_c, l.out_w*l.out_h);
             }
+#ifdef EXE_TIME
+            printf("Batchnorm - Performed in %10.3f milli-seconds.\n", ((double)get_time_point() - time) / 1000);
+#endif
         }
         else // BIAS only
         {
