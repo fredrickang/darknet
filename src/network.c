@@ -260,9 +260,9 @@ void forward_network(network net, network_state state)
         }
 #ifdef EXE_TIME
         double time = get_time_point();
-        printf("============ %3dth %15s Layer ============\n",i, get_layer_string(l.type));
+        printf("%3d %15s\n",i,get_layer_string(l.type));
         l.forward(l, state);
-        printf("======== Predicted in %10.3f milli-seconds. ========\n\n", ((double)get_time_point() - time) / 1000); 
+        printf("%10.3f\n\n",((double)get_time_point() - time) / 1000); 
 #else
         l.forward(l, state);
 #endif       

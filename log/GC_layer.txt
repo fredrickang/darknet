@@ -1,0 +1,619 @@
+
+ seen 64 
+  0th   convolutional
+Convolution - Performed in      0.072 milli-seconds.
+Batchnorm - Performed in      0.017 milli-seconds.
+Activation - Performed in      0.003 milli-seconds.
+     3.329
+
+  1th   convolutional
+Convolution - Performed in      0.023 milli-seconds.
+Batchnorm - Performed in      0.008 milli-seconds.
+Activation - Performed in      0.002 milli-seconds.
+     1.273
+
+  2th   convolutional
+Convolution - Performed in      0.030 milli-seconds.
+Batchnorm - Performed in      0.009 milli-seconds.
+Activation - Performed in      0.002 milli-seconds.
+     0.738
+
+  3th   convolutional
+Convolution - Performed in      0.040 milli-seconds.
+Batchnorm - Performed in      0.009 milli-seconds.
+Activation - Performed in      0.003 milli-seconds.
+     1.123
+
+  4th        shortcut
+Shortcut - Performed in      0.008 milli-seconds.
+Activation - Performed in      0.000 milli-seconds.
+     0.378
+
+  5th   convolutional
+Convolution - Performed in      0.025 milli-seconds.
+Batchnorm - Performed in      0.010 milli-seconds.
+Activation - Performed in      0.002 milli-seconds.
+     1.051
+
+  6th   convolutional
+Convolution - Performed in      0.029 milli-seconds.
+Batchnorm - Performed in      0.009 milli-seconds.
+Activation - Performed in      0.002 milli-seconds.
+     0.505
+
+  7th   convolutional
+Convolution - Performed in      0.021 milli-seconds.
+Batchnorm - Performed in      0.009 milli-seconds.
+Activation - Performed in      0.002 milli-seconds.
+     0.788
+
+  8th        shortcut
+Shortcut - Performed in      0.007 milli-seconds.
+Activation - Performed in      0.000 milli-seconds.
+     0.251
+
+  9th   convolutional
+Convolution - Performed in      0.028 milli-seconds.
+Batchnorm - Performed in      0.009 milli-seconds.
+Activation - Performed in      0.002 milli-seconds.
+     0.442
+
+ 10th   convolutional
+Convolution - Performed in      0.018 milli-seconds.
+Batchnorm - Performed in      0.009 milli-seconds.
+Activation - Performed in      0.003 milli-seconds.
+     0.778
+
+ 11th        shortcut
+Shortcut - Performed in      0.007 milli-seconds.
+Activation - Performed in      0.000 milli-seconds.
+     0.246
+
+ 12th   convolutional
+Convolution - Performed in      0.016 milli-seconds.
+Batchnorm - Performed in      0.011 milli-seconds.
+Activation - Performed in      0.002 milli-seconds.
+     0.883
+
+ 13th   convolutional
+Convolution - Performed in      0.030 milli-seconds.
+Batchnorm - Performed in      0.010 milli-seconds.
+Activation - Performed in      0.002 milli-seconds.
+     0.322
+
+ 14th   convolutional
+Convolution - Performed in      0.018 milli-seconds.
+Batchnorm - Performed in      0.009 milli-seconds.
+Activation - Performed in      0.002 milli-seconds.
+     0.627
+
+ 15th        shortcut
+Shortcut - Performed in      0.008 milli-seconds.
+Activation - Performed in      0.000 milli-seconds.
+     0.176
+
+ 16th   convolutional
+Convolution - Performed in      0.016 milli-seconds.
+Batchnorm - Performed in      0.010 milli-seconds.
+Activation - Performed in      0.002 milli-seconds.
+     0.238
+
+ 17th   convolutional
+Convolution - Performed in      0.019 milli-seconds.
+Batchnorm - Performed in      0.009 milli-seconds.
+Activation - Performed in      0.002 milli-seconds.
+     0.617
+
+ 18th        shortcut
+Shortcut - Performed in      0.007 milli-seconds.
+Activation - Performed in      0.000 milli-seconds.
+     0.189
+
+ 19th   convolutional
+Convolution - Performed in      0.035 milli-seconds.
+Batchnorm - Performed in      0.042 milli-seconds.
+Activation - Performed in      0.002 milli-seconds.
+     0.329
+
+ 20th   convolutional
+Convolution - Performed in      0.018 milli-seconds.
+Batchnorm - Performed in      0.009 milli-seconds.
+Activation - Performed in      0.002 milli-seconds.
+     0.630
+
+ 21th        shortcut
+Shortcut - Performed in      0.008 milli-seconds.
+Activation - Performed in      0.001 milli-seconds.
+     0.174
+
+ 22th   convolutional
+Convolution - Performed in      0.016 milli-seconds.
+Batchnorm - Performed in      0.010 milli-seconds.
+Activation - Performed in      0.002 milli-seconds.
+     0.206
+
+ 23th   convolutional
+Convolution - Performed in      0.018 milli-seconds.
+Batchnorm - Performed in      0.011 milli-seconds.
+Activation - Performed in      0.002 milli-seconds.
+     0.641
+
+ 24th        shortcut
+Shortcut - Performed in      0.007 milli-seconds.
+Activation - Performed in      0.000 milli-seconds.
+     0.155
+
+ 25th   convolutional
+Convolution - Performed in      0.017 milli-seconds.
+Batchnorm - Performed in      0.010 milli-seconds.
+Activation - Performed in      0.002 milli-seconds.
+     0.214
+
+ 26th   convolutional
+Convolution - Performed in      0.015 milli-seconds.
+Batchnorm - Performed in      0.022 milli-seconds.
+Activation - Performed in      0.002 milli-seconds.
+     0.608
+
+ 27th        shortcut
+Shortcut - Performed in      0.008 milli-seconds.
+Activation - Performed in      0.000 milli-seconds.
+     0.182
+
+ 28th   convolutional
+Convolution - Performed in      0.016 milli-seconds.
+Batchnorm - Performed in      0.010 milli-seconds.
+Activation - Performed in      0.002 milli-seconds.
+     0.231
+
+ 29th   convolutional
+Convolution - Performed in      0.019 milli-seconds.
+Batchnorm - Performed in      0.010 milli-seconds.
+Activation - Performed in      0.002 milli-seconds.
+     0.612
+
+ 30th        shortcut
+Shortcut - Performed in      0.008 milli-seconds.
+Activation - Performed in      0.000 milli-seconds.
+     0.181
+
+ 31th   convolutional
+Convolution - Performed in      0.016 milli-seconds.
+Batchnorm - Performed in      0.011 milli-seconds.
+Activation - Performed in      0.002 milli-seconds.
+     0.231
+
+ 32th   convolutional
+Convolution - Performed in      0.019 milli-seconds.
+Batchnorm - Performed in      0.009 milli-seconds.
+Activation - Performed in      0.002 milli-seconds.
+     0.613
+
+ 33th        shortcut
+Shortcut - Performed in      0.007 milli-seconds.
+Activation - Performed in      0.000 milli-seconds.
+     0.193
+
+ 34th   convolutional
+Convolution - Performed in      0.017 milli-seconds.
+Batchnorm - Performed in      0.011 milli-seconds.
+Activation - Performed in      0.002 milli-seconds.
+     0.234
+
+ 35th   convolutional
+Convolution - Performed in      0.020 milli-seconds.
+Batchnorm - Performed in      0.009 milli-seconds.
+Activation - Performed in      0.002 milli-seconds.
+     0.515
+
+ 36th        shortcut
+Shortcut - Performed in      0.004 milli-seconds.
+Activation - Performed in      0.000 milli-seconds.
+     0.154
+
+ 37th   convolutional
+Convolution - Performed in      0.018 milli-seconds.
+Batchnorm - Performed in      0.010 milli-seconds.
+Activation - Performed in      0.002 milli-seconds.
+     0.688
+
+ 38th   convolutional
+Convolution - Performed in      0.018 milli-seconds.
+Batchnorm - Performed in      0.011 milli-seconds.
+Activation - Performed in      0.002 milli-seconds.
+     0.228
+
+ 39th   convolutional
+Convolution - Performed in      0.019 milli-seconds.
+Batchnorm - Performed in      0.009 milli-seconds.
+Activation - Performed in      0.002 milli-seconds.
+     0.656
+
+ 40th        shortcut
+Shortcut - Performed in      0.044 milli-seconds.
+Activation - Performed in      0.001 milli-seconds.
+     0.205
+
+ 41th   convolutional
+Convolution - Performed in      0.091 milli-seconds.
+Batchnorm - Performed in      0.060 milli-seconds.
+Activation - Performed in      0.012 milli-seconds.
+     0.329
+
+ 42th   convolutional
+Convolution - Performed in      0.112 milli-seconds.
+Batchnorm - Performed in      0.052 milli-seconds.
+Activation - Performed in      0.012 milli-seconds.
+     0.764
+
+ 43th        shortcut
+Shortcut - Performed in      0.044 milli-seconds.
+Activation - Performed in      0.001 milli-seconds.
+     0.202
+
+ 44th   convolutional
+Convolution - Performed in      0.091 milli-seconds.
+Batchnorm - Performed in      0.061 milli-seconds.
+Activation - Performed in      0.011 milli-seconds.
+     0.340
+
+ 45th   convolutional
+Convolution - Performed in      0.110 milli-seconds.
+Batchnorm - Performed in      0.052 milli-seconds.
+Activation - Performed in      0.016 milli-seconds.
+     0.764
+
+ 46th        shortcut
+Shortcut - Performed in      0.043 milli-seconds.
+Activation - Performed in      0.001 milli-seconds.
+     0.203
+
+ 47th   convolutional
+Convolution - Performed in      0.092 milli-seconds.
+Batchnorm - Performed in      0.059 milli-seconds.
+Activation - Performed in      0.011 milli-seconds.
+     0.390
+
+ 48th   convolutional
+Convolution - Performed in      0.108 milli-seconds.
+Batchnorm - Performed in      0.054 milli-seconds.
+Activation - Performed in      0.011 milli-seconds.
+     0.710
+
+ 49th        shortcut
+Shortcut - Performed in      0.022 milli-seconds.
+Activation - Performed in      0.000 milli-seconds.
+     0.165
+
+ 50th   convolutional
+Convolution - Performed in      0.091 milli-seconds.
+Batchnorm - Performed in      0.061 milli-seconds.
+Activation - Performed in      0.012 milli-seconds.
+     0.339
+
+ 51th   convolutional
+Convolution - Performed in      0.109 milli-seconds.
+Batchnorm - Performed in      0.053 milli-seconds.
+Activation - Performed in      0.012 milli-seconds.
+     0.718
+
+ 52th        shortcut
+Shortcut - Performed in      0.021 milli-seconds.
+Activation - Performed in      0.000 milli-seconds.
+     0.163
+
+ 53th   convolutional
+Convolution - Performed in      0.092 milli-seconds.
+Batchnorm - Performed in      0.060 milli-seconds.
+Activation - Performed in      0.012 milli-seconds.
+     0.340
+
+ 54th   convolutional
+Convolution - Performed in      0.109 milli-seconds.
+Batchnorm - Performed in      0.052 milli-seconds.
+Activation - Performed in      0.012 milli-seconds.
+     0.766
+
+ 55th        shortcut
+Shortcut - Performed in      0.044 milli-seconds.
+Activation - Performed in      0.001 milli-seconds.
+     0.207
+
+ 56th   convolutional
+Convolution - Performed in      0.092 milli-seconds.
+Batchnorm - Performed in      0.060 milli-seconds.
+Activation - Performed in      0.013 milli-seconds.
+     0.331
+
+ 57th   convolutional
+Convolution - Performed in      0.110 milli-seconds.
+Batchnorm - Performed in      0.053 milli-seconds.
+Activation - Performed in      0.012 milli-seconds.
+     0.753
+
+ 58th        shortcut
+Shortcut - Performed in      0.043 milli-seconds.
+Activation - Performed in      0.000 milli-seconds.
+     0.202
+
+ 59th   convolutional
+Convolution - Performed in      0.092 milli-seconds.
+Batchnorm - Performed in      0.059 milli-seconds.
+Activation - Performed in      0.012 milli-seconds.
+     0.333
+
+ 60th   convolutional
+Convolution - Performed in      0.110 milli-seconds.
+Batchnorm - Performed in      0.054 milli-seconds.
+Activation - Performed in      0.012 milli-seconds.
+     0.754
+
+ 61th        shortcut
+Shortcut - Performed in      0.044 milli-seconds.
+Activation - Performed in      0.001 milli-seconds.
+     0.202
+
+ 62th   convolutional
+Convolution - Performed in      0.094 milli-seconds.
+Batchnorm - Performed in      0.061 milli-seconds.
+Activation - Performed in      0.012 milli-seconds.
+     1.272
+
+ 63th   convolutional
+Convolution - Performed in      0.092 milli-seconds.
+Batchnorm - Performed in      0.057 milli-seconds.
+Activation - Performed in      0.013 milli-seconds.
+     0.333
+
+ 64th   convolutional
+Convolution - Performed in      0.112 milli-seconds.
+Batchnorm - Performed in      0.053 milli-seconds.
+Activation - Performed in      0.012 milli-seconds.
+     1.085
+
+ 65th        shortcut
+Shortcut - Performed in      0.044 milli-seconds.
+Activation - Performed in      0.000 milli-seconds.
+     0.067
+
+ 66th   convolutional
+Convolution - Performed in      0.071 milli-seconds.
+Batchnorm - Performed in      0.055 milli-seconds.
+Activation - Performed in      0.011 milli-seconds.
+     0.302
+
+ 67th   convolutional
+Convolution - Performed in      0.113 milli-seconds.
+Batchnorm - Performed in      0.053 milli-seconds.
+Activation - Performed in      0.012 milli-seconds.
+     1.077
+
+ 68th        shortcut
+Shortcut - Performed in      0.044 milli-seconds.
+Activation - Performed in      0.000 milli-seconds.
+     0.067
+
+ 69th   convolutional
+Convolution - Performed in      0.070 milli-seconds.
+Batchnorm - Performed in      0.054 milli-seconds.
+Activation - Performed in      0.012 milli-seconds.
+     0.301
+
+ 70th   convolutional
+Convolution - Performed in      0.112 milli-seconds.
+Batchnorm - Performed in      0.074 milli-seconds.
+Activation - Performed in      0.020 milli-seconds.
+     1.078
+
+ 71th        shortcut
+Shortcut - Performed in      0.044 milli-seconds.
+Activation - Performed in      0.001 milli-seconds.
+     0.068
+
+ 72th   convolutional
+Convolution - Performed in      0.069 milli-seconds.
+Batchnorm - Performed in      0.055 milli-seconds.
+Activation - Performed in      0.011 milli-seconds.
+     0.298
+
+ 73th   convolutional
+Convolution - Performed in      0.112 milli-seconds.
+Batchnorm - Performed in      0.052 milli-seconds.
+Activation - Performed in      0.013 milli-seconds.
+     1.082
+
+ 74th        shortcut
+Shortcut - Performed in      0.044 milli-seconds.
+Activation - Performed in      0.001 milli-seconds.
+     0.068
+
+ 75th   convolutional
+Convolution - Performed in      0.070 milli-seconds.
+Batchnorm - Performed in      0.055 milli-seconds.
+Activation - Performed in      0.012 milli-seconds.
+     0.299
+
+ 76th   convolutional
+Convolution - Performed in      0.112 milli-seconds.
+Batchnorm - Performed in      0.054 milli-seconds.
+Activation - Performed in      0.012 milli-seconds.
+     1.071
+
+ 77th   convolutional
+Convolution - Performed in      0.091 milli-seconds.
+Batchnorm - Performed in      0.078 milli-seconds.
+Activation - Performed in      0.013 milli-seconds.
+     0.360
+
+ 78th   convolutional
+Convolution - Performed in      0.109 milli-seconds.
+Batchnorm - Performed in      0.054 milli-seconds.
+Activation - Performed in      0.011 milli-seconds.
+     1.073
+
+ 79th   convolutional
+Convolution - Performed in      0.089 milli-seconds.
+Batchnorm - Performed in      0.060 milli-seconds.
+Activation - Performed in      0.011 milli-seconds.
+     0.329
+
+ 80th   convolutional
+Convolution - Performed in      0.114 milli-seconds.
+Batchnorm - Performed in      0.055 milli-seconds.
+Activation - Performed in      0.011 milli-seconds.
+     1.079
+
+ 81th   convolutional
+Convolution - Performed in      0.090 milli-seconds.
+     0.276
+
+ 82th            yolo
+Activation - Performed in      0.019 milli-seconds.
+Activation - Performed in      0.011 milli-seconds.
+Activation - Performed in      0.011 milli-seconds.
+Activation - Performed in      0.009 milli-seconds.
+Activation - Performed in      0.012 milli-seconds.
+Activation - Performed in      0.010 milli-seconds.
+Yolo - Performed in      0.188 milli-seconds.
+     0.342
+
+ 83th           route
+Route - Performed in      0.042 milli-seconds.
+     0.065
+
+ 84th   convolutional
+Convolution - Performed in      0.073 milli-seconds.
+Batchnorm - Performed in      0.054 milli-seconds.
+Activation - Performed in      0.012 milli-seconds.
+     0.159
+
+ 85th        upsample
+Upsample - Performed in      0.027 milli-seconds.
+     0.180
+
+ 86th           route
+Route - Performed in      0.058 milli-seconds.
+     0.089
+
+ 87th   convolutional
+Convolution - Performed in      0.069 milli-seconds.
+Batchnorm - Performed in      0.077 milli-seconds.
+Activation - Performed in      0.012 milli-seconds.
+     0.269
+
+ 88th   convolutional
+Convolution - Performed in      0.090 milli-seconds.
+Batchnorm - Performed in      0.047 milli-seconds.
+Activation - Performed in      0.010 milli-seconds.
+     0.673
+
+ 89th   convolutional
+Convolution - Performed in      0.058 milli-seconds.
+Batchnorm - Performed in      0.047 milli-seconds.
+Activation - Performed in      0.011 milli-seconds.
+     0.244
+
+ 90th   convolutional
+Convolution - Performed in      0.112 milli-seconds.
+Batchnorm - Performed in      0.053 milli-seconds.
+Activation - Performed in      0.013 milli-seconds.
+     0.726
+
+ 91th   convolutional
+Convolution - Performed in      0.067 milli-seconds.
+Batchnorm - Performed in      0.050 milli-seconds.
+Activation - Performed in      0.011 milli-seconds.
+     0.279
+
+ 92th   convolutional
+Convolution - Performed in      0.112 milli-seconds.
+Batchnorm - Performed in      0.054 milli-seconds.
+Activation - Performed in      0.011 milli-seconds.
+     0.720
+
+ 93th   convolutional
+Convolution - Performed in      0.067 milli-seconds.
+     0.236
+
+ 94th            yolo
+Activation - Performed in      0.016 milli-seconds.
+Activation - Performed in      0.011 milli-seconds.
+Activation - Performed in      0.019 milli-seconds.
+Activation - Performed in      0.011 milli-seconds.
+Activation - Performed in      0.010 milli-seconds.
+Activation - Performed in      0.010 milli-seconds.
+Yolo - Performed in      0.246 milli-seconds.
+     0.709
+
+ 95th           route
+Route - Performed in      0.042 milli-seconds.
+     0.064
+
+ 96th   convolutional
+Convolution - Performed in      0.070 milli-seconds.
+Batchnorm - Performed in      0.056 milli-seconds.
+Activation - Performed in      0.057 milli-seconds.
+     0.206
+
+ 97th        upsample
+Upsample - Performed in      0.030 milli-seconds.
+     0.182
+
+ 98th           route
+Route - Performed in      0.061 milli-seconds.
+     0.218
+
+ 99th   convolutional
+Convolution - Performed in      0.092 milli-seconds.
+Batchnorm - Performed in      0.057 milli-seconds.
+Activation - Performed in      0.012 milli-seconds.
+     0.328
+
+100th   convolutional
+Convolution - Performed in      0.108 milli-seconds.
+Batchnorm - Performed in      0.057 milli-seconds.
+Activation - Performed in      0.012 milli-seconds.
+     0.749
+
+101th   convolutional
+Convolution - Performed in      0.092 milli-seconds.
+Batchnorm - Performed in      0.055 milli-seconds.
+Activation - Performed in      0.013 milli-seconds.
+     0.330
+
+102th   convolutional
+Convolution - Performed in      0.109 milli-seconds.
+Batchnorm - Performed in      0.056 milli-seconds.
+Activation - Performed in      0.013 milli-seconds.
+     0.744
+
+103th   convolutional
+Convolution - Performed in      0.091 milli-seconds.
+Batchnorm - Performed in      0.058 milli-seconds.
+Activation - Performed in      0.012 milli-seconds.
+     0.334
+
+104th   convolutional
+Convolution - Performed in      0.108 milli-seconds.
+Batchnorm - Performed in      0.056 milli-seconds.
+Activation - Performed in      0.012 milli-seconds.
+     0.749
+
+105th   convolutional
+Convolution - Performed in      0.091 milli-seconds.
+     0.465
+
+106th            yolo
+Activation - Performed in      0.017 milli-seconds.
+Activation - Performed in      0.011 milli-seconds.
+Activation - Performed in      0.010 milli-seconds.
+Activation - Performed in      0.012 milli-seconds.
+Activation - Performed in      0.011 milli-seconds.
+Activation - Performed in      0.009 milli-seconds.
+Yolo - Performed in      0.184 milli-seconds.
+     1.328
+
+data/dog.jpg: Predicted in 54.778000 milli-seconds.
+bicycle: 100%	(left_x:   99   top_y:  136   width:  499   height:  298)
+dog: 100%	(left_x:  135   top_y:  218   width:  184   height:  326)
+truck: 94%	(left_x:  478   top_y:   82   width:  211   height:   86)

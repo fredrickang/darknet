@@ -120,6 +120,7 @@ void resize_maxpool_layer(maxpool_layer *l, int w, int h)
 
 void forward_maxpool_layer(const maxpool_layer l, network_state state)
 {
+    printf("I HAS BEEN CALLED YAHA");
     if (l.maxpool_depth)
     {
         int b, i, j, k, g;

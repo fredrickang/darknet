@@ -55,10 +55,11 @@ void forward_network_gpu(network net, network_state state)
             fill_ongpu(l.outputs * l.batch, 0, l.delta_gpu, 1);
         }
 #ifdef EXE_TIME
-        printf("============ %3dth %15s Layer ============\n",i ,get_layer_string(l.type));
         double time = get_time_point();
+        printf("%3dth %15s\n",i, get_layer_string(l.type));
         l.forward_gpu(l, state);
-        printf("========= Predicted in %10.3f milli-seconds. =========\n\n" , i ,get_layer_string(l.type), ((double)get_time_point() - time) / 1000); 
+        CHECK_CUDA(cudaDeviceSynchronize());
+        printf("%10.3f\n\n",((double)get_time_point() - time) / 1000); 
 #else
         l.forward_gpu(l, state);
 #endif
