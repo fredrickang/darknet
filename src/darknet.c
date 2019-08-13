@@ -536,7 +536,9 @@ int main(int argc, char **argv)
     } else if (0 == strcmp(argv[1], "imtest")){
         test_resize(argv[2]);
     } else if (0 == strcmp(argv[1], "thread")){
-        multi_thread(argc,argv);    
+        multi_thread(argc,argv); // multi-threading at run_detector scope
+    } else if (0 == strcmp(argv[1], "deepdive")){
+        deep_dive(argc,argv);   // multi-threading at network_predict scope
     }else {
         fprintf(stderr, "Not an option: %s\n", argv[1]);
     }
