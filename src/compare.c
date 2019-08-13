@@ -397,6 +397,7 @@ void run_compare(int argc, char **argv)
     //char *filename = (argc > 5) ? argv[5]: 0;
     if(0==strcmp(argv[2], "train")) train_compare(cfg, weights);
     else if(0==strcmp(argv[2], "valid")) validate_compare(cfg, weights);
+    else if(0==strcmp(argv[2], "test")) test_compare(cfg, weights);
     else if(0==strcmp(argv[2], "sort")) SortMaster3000(cfg, weights);
     else if(0==strcmp(argv[2], "battle")) BattleRoyaleWithCheese(cfg, weights);
     /*
