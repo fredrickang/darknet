@@ -31,6 +31,7 @@ from ctypes import *
 import math
 import random
 import os
+import time
 
 def sample(probs):
     s = sum(probs)
@@ -298,7 +299,7 @@ netMain = None
 metaMain = None
 altNames = None
 
-def performDetect(imagePath="data/dog.jpg", thresh= 0.25, configPath = "./cfg/yolov3.cfg", weightPath = "yolov3.weights", metaPath= "./cfg/coco.data", showImage= True, makeImageOnly = False, initOnly= False):
+def performDetect(imagePath="data/dog.jpg", thresh= 0.25, configPath = "./cfg/yolov3.cfg", weightPath = "yolov3.weights", metaPath= "./cfg/coco.data", showImage= False, makeImageOnly = False, initOnly= False):
     """
     Convenience function to handle the detection and returns of objects.
 
@@ -442,4 +443,6 @@ def performDetect(imagePath="data/dog.jpg", thresh= 0.25, configPath = "./cfg/yo
     return detections
 
 if __name__ == "__main__":
-    print(performDetect())
+    start = time.time()
+    performDetect()
+    print("Executed in {:3.8f}".format(time.time() - start))

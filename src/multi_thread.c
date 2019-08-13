@@ -7,7 +7,7 @@
 #include "box.h"
 #include "demo.h"
 #include "option_list.h"
-#inculde "http_stream.h"
+#include "http_stream.h"
 
 #include <pthread.h>
 #include <assert.h>

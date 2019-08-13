@@ -153,7 +153,7 @@ void test_compare(char *filename, char *weightfile)
     }
     srand(time(0));
 
-    list *plist = get_paths("data/compare.test.list");
+    list *plist = get_paths("data/noise1.txt");
     //list *plist = get_paths("data/compare.val.old");
     char **paths = (char **)list_to_array(plist);
     int N = plist->size/2;
