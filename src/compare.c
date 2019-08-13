@@ -144,6 +144,61 @@ void validate_compare(char *filename, char *weightfile)
         free_data(val);
     }
 }
+void test_compare(char *filename, char *weightfile)
+{
+    int i = 0;
+    network net = parse_network_cfg(filename);
+    if(weightfile){
+        load_weights(&net, weightfile);
+    }
+    srand(time(0));
+
+    list *plist = get_paths("data/compare.test.list");
+    //list *plist = get_paths("data/compare.val.old");
+    char **paths = (char **)list_to_array(plist);
+    int N = plist->size/2;
+    free_list(plist);
+
+    clock_t time;
+    int correct = 0;
+    int total = 0;
+    int splits = 10;
+    int num = (i+1)*N/splits - i*N/splits;
+
+    data val, buffer;
+
+    load_args args = {0};
+    args.w = net.w;
+    args.h = net.h;
+    args.paths = paths;
+    args.classes = 20;
+    args.n = num;
+    args.m = 0;
+    args.d = &buffer;
+    args.type = COMPARE_DATA;
+
+    pthread_t load_thread = load_data_in_thread(args);
+    for(i = 1; i <= splits; ++i){
+        time=get_time_point();
+
+        pthread_join(load_thread, 0);
+        val = buffer;
+
+        num = (i+1)*N/splits - i*N/splits;
+        char **part = paths+(i*N/splits);
+        if(i != splits){
+            args.paths = part;
+            load_thread = load_data_in_thread(args);
+        }
+        printf("Loaded: %d images in %10.3f seconds\n", val.X.rows, ((double)get_time_point()- time) / 1000);
+
+        time=get_time_point();
+        matrix pred = network_predict_data(net, val);
+        printf("%d: Acc: %f, %lf seconds, %d images\n", i,((double)get_time_point() - time) / 1000, val.X.rows);
+        free_matrix(pred);
+        free_data(val);
+    }
+}
 
 typedef struct {
     network net;
