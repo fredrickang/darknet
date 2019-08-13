@@ -120,7 +120,9 @@ void resize_maxpool_layer(maxpool_layer *l, int w, int h)
 
 void forward_maxpool_layer(const maxpool_layer l, network_state state)
 {
-    printf("I HAS BEEN CALLED YAHA");
+#ifdef EXE_TIME
+    double time = get_time_point();
+#endif
     if (l.maxpool_depth)
     {
         int b, i, j, k, g;
@@ -148,12 +150,18 @@ void forward_maxpool_layer(const maxpool_layer l, network_state state)
                 }
             }
         }
+#ifdef EXE_TIME
+        printf("Maxpool - Performed in %10.3f milli-seconds.\n", ((double)get_time_point() - time) / 1000);
+#endif
         return;
     }
 
 
     if (!state.train) {
         forward_maxpool_layer_avx(state.input, l.output, l.indexes, l.size, l.w, l.h, l.out_w, l.out_h, l.c, l.pad, l.stride, l.batch);
+#ifdef EXE_TIME
+        printf("Maxpool - Performed in %10.3f milli-seconds.\n", ((double)get_time_point() - time) / 1000);
+#endif
         return;
     }
 
