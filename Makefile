@@ -1,12 +1,12 @@
-GPU=0
-CUDNN=0
+GPU=1
+CUDNN=1
 CUDNN_HALF=0
 OPENCV=0
 AVX=0
 OPENMP=0
 LIBSO=0
 ZED_CAMERA=0
-EXE_TIME = 1
+EXE_TIME= 1
 
 # set EXE_TIME = 1 to profiling layer by execution
 # set GPU=1 and CUDNN=1 to speedup on GPU

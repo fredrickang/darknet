@@ -1,5 +1,3 @@
-
- seen 64 
   0th   convolutional
 Convolution - Performed in      0.072 milli-seconds.
 Batchnorm - Performed in      0.017 milli-seconds.
