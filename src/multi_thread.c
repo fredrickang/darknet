@@ -13,7 +13,7 @@
 #include <pthread.h>
 #include <assert.h>
 
-int check_mistakes = 0;
+int check_mistakes_2 = 0;
 
 extern void run_detector(int argc, char **argv);
 
@@ -76,7 +76,7 @@ void deep_dive(int argc, char **argv)
     int letter_box = find_arg(argc, argv, "-letter_box");
     int calc_map = find_arg(argc, argv, "-map");
     int map_points = find_int_arg(argc, argv, "-points", 0);
-    check_mistakes = find_arg(argc, argv, "-check_mistakes");
+    check_mistakes_2 = find_arg(argc, argv, "-check_mistakes");
     int show_imgs = find_arg(argc, argv, "-show_imgs");
     int mjpeg_port = find_int_arg(argc, argv, "-mjpeg_port", -1);
     int json_port = find_int_arg(argc, argv, "-json_port", -1);

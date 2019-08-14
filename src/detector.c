@@ -1421,6 +1421,7 @@ void test_detector(char *datacfg, char *cfgfile, char *weightfile, char *filenam
     free(alphabet);
 
     free_network(net);
+    fclose(pFile);
 }
 
 void run_detector(int argc, char **argv)
@@ -1449,7 +1450,7 @@ void run_detector(int argc, char **argv)
     // and for recall mode (extended output table-like format with results for best_class fit)
     int ext_output = find_arg(argc, argv, "-ext_output");
     int save_labels = find_arg(argc, argv, "-save_labels");
-    char *log_name = find_char_log(argc, argv, "-log_name", 0);
+    char *log_name = find_char_arg(argc, argv, "-log_name", 0);
 
     if (argc < 4) {
         fprintf(stderr, "usage: %s %s [train/test/valid/demo/map] [data] [cfg] [weights (optional)]\n", argv[0], argv[1]);
