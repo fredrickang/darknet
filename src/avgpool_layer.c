@@ -2,6 +2,8 @@
 #include "dark_cuda.h"
 #include <stdio.h>
 
+extern FILE *pFile;
+
 avgpool_layer make_avgpool_layer(int batch, int w, int h, int c)
 {
     fprintf(stderr, "avg                          %4d x%4d x%4d ->   %4d\n",  w, h, c, c);
@@ -56,7 +58,7 @@ void forward_avgpool_layer(const avgpool_layer l, network_state state)
         }
     }
 #ifdef EXE_TIME
-    printf("layer: Avgpool - Performed in %10.3f milli-seconds.\n", ((double)get_time_point() - time) / 1000);
+    fprintf(pFile,"layer: Avgpool - Performed in %10.3f milli-seconds.\n", ((double)get_time_point() - time) / 1000);
 #endif
 }
 

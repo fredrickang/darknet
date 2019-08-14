@@ -9,6 +9,8 @@
 #include <stdlib.h>
 #include <string.h>
 
+extern FILE *pFile;
+
 layer make_activation_layer(int batch, int inputs, ACTIVATION activation)
 {
     layer l = { (LAYER_TYPE)0 };
@@ -43,7 +45,7 @@ void forward_activation_layer(layer l, network_state state)
     copy_cpu(l.outputs*l.batch, state.input, 1, l.output, 1);
     activate_array(l.output, l.outputs*l.batch, l.activation);
 #ifdef EXE_TIME
-    printf("Activation - Performed in %10.3f milli-seconds.\n", ((double)get_time_point() - time) / 1000);
+    fprintf(pFile,"Activation - Performed in %10.3f milli-seconds.\n", ((double)get_time_point() - time) / 1000);
 #endif
 }
 
@@ -63,7 +65,7 @@ void forward_activation_layer_gpu(layer l, network_state state)
     copy_ongpu(l.outputs*l.batch, state.input, 1, l.output_gpu, 1);
     activate_array_ongpu(l.output_gpu, l.outputs*l.batch, l.activation);
 #ifdef EXE_TIME
-    printf("Activation - Performed in %10.3f milli-seconds.\n", ((double)get_time_point() - time) / 1000);
+    fprintf(pFile,"Activation - Performed in %10.3f milli-seconds.\n", ((double)get_time_point() - time) / 1000);
 #endif  
 }
 

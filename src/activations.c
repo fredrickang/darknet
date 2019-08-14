@@ -4,7 +4,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
-
+extern FILE *pFile;
 char *get_activation_string(ACTIVATION a)
 {
     switch(a){
@@ -123,7 +123,7 @@ void activate_array(float *x, const int n, const ACTIVATION a)
         }
     }
 #ifdef EXE_TIME
-    printf("Activation - Performed in %10.3f milli-seconds.\n", ((double)get_time_point() - time) / 1000);
+    fprintf(pFile,"Activation - Performed in %10.3f milli-seconds.\n", ((double)get_time_point() - time) / 1000);
 #endif
 }
 

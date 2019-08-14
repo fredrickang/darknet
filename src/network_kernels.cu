@@ -38,6 +38,8 @@
 
 #include "http_stream.h"
 
+extern FILE *pFile;
+
 float * get_network_output_gpu_layer(network net, int i);
 float * get_network_delta_gpu_layer(network net, int i);
 float * get_network_output_gpu(network net);
@@ -56,10 +58,10 @@ void forward_network_gpu(network net, network_state state)
         }
 #ifdef EXE_TIME
         double time = get_time_point();
-        printf("%3dth %15s\n",i, get_layer_string(l.type));
+        fprintf(pFile, "%3dth %15s\n", i, get_layer_string(l.type));
         l.forward_gpu(l, state);
         CHECK_CUDA(cudaDeviceSynchronize());
-        printf("%10.3f\n\n",((double)get_time_point() - time) / 1000); 
+        fprintf(pFile, "%10.3f\n\n", ((double)get_time_point() - time) / 1000); 
 #else
         l.forward_gpu(l, state);
 #endif

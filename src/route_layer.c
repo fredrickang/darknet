@@ -3,6 +3,7 @@
 #include "blas.h"
 #include <stdio.h>
 
+extern FILE* pFile;
 route_layer make_route_layer(int batch, int n, int *input_layers, int *input_sizes)
 {
     fprintf(stderr,"route ");
@@ -87,7 +88,7 @@ void forward_route_layer(const route_layer l, network_state state)
         offset += input_size;
     }
 #ifdef EXE_TIME
-    printf("Route - Performed in %10.3f milli-seconds.\n", ((double)get_time_point() - time) / 1000);
+    fprintf(pFile,"Route - Performed in %10.3f milli-seconds.\n", ((double)get_time_point() - time) / 1000);
 #endif
 }
 
@@ -125,7 +126,7 @@ void forward_route_layer_gpu(const route_layer l, network_state state)
         offset += input_size;
     }
 #ifdef EXE_TIME
-    printf("Route - Performed in %10.3f milli-seconds.\n", ((double)get_time_point() - time) / 1000);   
+    fprintf(pFile,"Route - Performed in %10.3f milli-seconds.\n", ((double)get_time_point() - time) / 1000);   
 #endif 
 }
 

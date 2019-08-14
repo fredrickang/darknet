@@ -4,7 +4,7 @@
 
 #include "maxpool_layer.h"
 #include "dark_cuda.h"
-
+extern FILE *pFile;
 __global__ void forward_maxpool_depth_layer_kernel(int n, int w, int h, int c, int out_c, int batch, float *input, float *output, int *indexes)
 {
     int id = (blockIdx.x + blockIdx.y*gridDim.x) * blockDim.x + threadIdx.x;
@@ -143,7 +143,7 @@ extern "C" void forward_maxpool_layer_gpu(maxpool_layer layer, network_state sta
         CHECK_CUDA(cudaPeekAtLastError());
         CHECK_CUDA(cudaDeviceSynchronize());
 #ifdef EXE_TIME
-        printf("Maxpool - Performed in %10.3f milli-seconds.\n", ((double)get_time_point() - time) / 1000);
+        fprintf(pFile,"Maxpool - Performed in %10.3f milli-seconds.\n", ((double)get_time_point() - time) / 1000);
 #endif
         return;
     }
@@ -168,7 +168,7 @@ extern "C" void forward_maxpool_layer_gpu(maxpool_layer layer, network_state sta
         //cudnnDestroyTensorDescriptor(layer.srcTensorDesc);
         //cudnnDestroyTensorDescriptor(layer.dstTensorDesc);
 #ifdef EXE_TIME
-        printf("Maxpool - Performed in %10.3f milli-seconds.\n", ((double)get_time_point() - time) / 1000);
+        fprintf(pFile,"Maxpool - Performed in %10.3f milli-seconds.\n", ((double)get_time_point() - time) / 1000);
 #endif
         return;
     }
@@ -184,7 +184,7 @@ extern "C" void forward_maxpool_layer_gpu(maxpool_layer layer, network_state sta
     CHECK_CUDA(cudaPeekAtLastError());
     CHECK_CUDA(cudaDeviceSynchronize());
 #ifdef EXE_TIME
-    printf("Maxpool - Performed in %10.3f milli-seconds.\n", ((double)get_time_point() - time) / 1000);
+    fprintf(pFile,"Maxpool - Performed in %10.3f milli-seconds.\n", ((double)get_time_point() - time) / 1000);
 #endif
 }
 

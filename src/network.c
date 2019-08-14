@@ -37,6 +37,8 @@
 #include "upsample_layer.h"
 #include "parser.h"
 
+extern FILE *pFile;
+
 load_args get_base_args(network *net)
 {
     load_args args = { 0 };
@@ -260,9 +262,9 @@ void forward_network(network net, network_state state)
         }
 #ifdef EXE_TIME
         double time = get_time_point();
-        printf("%3d %15s\n",i,get_layer_string(l.type));
+        fprintf(pFile,"%3d %15s\n",i,get_layer_string(l.type));
         l.forward(l, state);
-        printf("%10.3f\n\n",((double)get_time_point() - time) / 1000); 
+        fprintf(pFile,"%10.3f\n\n",((double)get_time_point() - time) / 1000); 
 #else
         l.forward(l, state);
 #endif       

@@ -2,6 +2,8 @@
 #include "blas.h"
 #include <stdio.h>
 
+extern FILE *pFile;
+
 layer make_batchnorm_layer(int batch, int w, int h, int c)
 {
     fprintf(stderr, "Batch Normalization Layer: %d x %d x %d image\n", w,h,c);
@@ -152,7 +154,7 @@ void forward_batchnorm_layer(layer l, network_state state)
     }
     scale_bias(l.output, l.scales, l.batch, l.out_c, l.out_h*l.out_w);
 #ifdef EXE_TIME
-    printf("Batchnorm - Performed in %10.3f milli-seconds.\n", ((double)get_time_point() - time) / 1000);
+    fprintf(pFile ,"Batchnorm - Performed in %10.3f milli-seconds.\n", ((double)get_time_point() - time) / 1000);
 #endif
 }
 
@@ -246,7 +248,7 @@ void forward_batchnorm_layer_gpu(layer l, network_state state)
         add_bias_gpu(l.output_gpu, l.biases_gpu, l.batch, l.out_c, l.out_w*l.out_h);
     }
 #ifdef EXE_TIME
-    printf("Batchnorm - Performed in %10.3f milli-seconds.\n", ((double)get_time_point() - time) / 1000);
+    fprintf(pFile,"Batchnorm - Performed in %10.3f milli-seconds.\n", ((double)get_time_point() - time) / 1000);
 #endif
 }
 

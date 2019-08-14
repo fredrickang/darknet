@@ -18,6 +18,8 @@ typedef __compar_fn_t comparison_fn_t;
 
 #include "http_stream.h"
 
+extern FILE* pFile;
+
 int check_mistakes = 0;
 
 static int coco_ids[] = { 1,2,3,4,5,6,7,8,9,10,11,13,14,15,16,17,18,19,20,21,22,23,24,25,27,28,31,32,33,34,35,36,37,38,39,40,41,42,43,44,46,47,48,49,50,51,52,53,54,55,56,57,58,59,60,61,62,63,64,65,67,70,72,73,74,75,76,77,78,79,80,81,82,84,85,86,87,88,89,90 };
@@ -1269,7 +1271,7 @@ void calc_anchors(char *datacfg, int num_of_clusters, int width, int height, int
 
 
 void test_detector(char *datacfg, char *cfgfile, char *weightfile, char *filename, float thresh,
-    float hier_thresh, int dont_show, int ext_output, int save_labels, char *outfile, int letter_box)
+    float hier_thresh, int dont_show, int ext_output, int save_labels, char *outfile, int letter_box, char* log_name)
 {
     list *options = read_data_cfg(datacfg);
     char *name_list = option_find_str(options, "names", "data/names.list");
@@ -1329,11 +1331,13 @@ void test_detector(char *datacfg, char *cfgfile, char *weightfile, char *filenam
 
         float *X = sized.data;
 
+        assert(log_name != 0);
+        pFile = fopen(log_name,"w+");
         //time= what_time_is_it_now();
         double time = get_time_point();
         network_predict(net, X);
         //network_predict_image(&net, im); letterbox = 1;
-        printf("%s: Predicted in %lf milli-seconds.\n", input, ((double)get_time_point() - time) / 1000);
+        fprintf(pFile,"%s: Predicted in %lf milli-seconds.\n", input, ((double)get_time_point() - time) / 1000);
         //printf("%s: Predicted in %f seconds.\n", input, (what_time_is_it_now()-time));
 
         int nboxes = 0;
@@ -1445,6 +1449,8 @@ void run_detector(int argc, char **argv)
     // and for recall mode (extended output table-like format with results for best_class fit)
     int ext_output = find_arg(argc, argv, "-ext_output");
     int save_labels = find_arg(argc, argv, "-save_labels");
+    char *log_name = find_char_log(argc, argv, "-log_name", 0);
+
     if (argc < 4) {
         fprintf(stderr, "usage: %s %s [train/test/valid/demo/map] [data] [cfg] [weights (optional)]\n", argv[0], argv[1]);
         return;
@@ -1482,7 +1488,7 @@ void run_detector(int argc, char **argv)
         if (strlen(weights) > 0)
             if (weights[strlen(weights) - 1] == 0x0d) weights[strlen(weights) - 1] = 0;
     char *filename = (argc > 6) ? argv[6] : 0;
-    if (0 == strcmp(argv[2], "test")) test_detector(datacfg, cfg, weights, filename, thresh, hier_thresh, dont_show, ext_output, save_labels, outfile, letter_box);
+    if (0 == strcmp(argv[2], "test")) test_detector(datacfg, cfg, weights, filename, thresh, hier_thresh, dont_show, ext_output, save_labels, outfile, letter_box, log_name);
     else if (0 == strcmp(argv[2], "train")) train_detector(datacfg, cfg, weights, gpus, ngpus, clear, dont_show, calc_map, mjpeg_port, show_imgs);
     else if (0 == strcmp(argv[2], "valid")) validate_detector(datacfg, cfg, weights, outfile);
     else if (0 == strcmp(argv[2], "recall")) validate_detector_recall(datacfg, cfg, weights);
