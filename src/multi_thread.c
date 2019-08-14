@@ -23,6 +23,7 @@ struct arg_info{
 };
 
 struct deepdive{
+    char *thread_name;
     network net;
     image sized;
 };
@@ -61,8 +62,8 @@ void *DEEPDIVING(void * argument)
     struct deepdive *deepdive = argument;
     float *X = deepdive->sized.data;
 
-    pid_t tid = gettid();
-    char filename[] = (char)tid ".txt";
+    
+    char filename[] = deepdive->thread_name ".txt";
     pFile = fopen(filename,"w+");
 
     double time = get_time_point();
@@ -206,6 +207,7 @@ void deep_dive(int argc, char **argv)
         int i;
         assert(thread_num != -1);
         for(i = 0; i< thread_num; i++){
+            deepdive->thread_name = i;
             if(pthread_create(&tid,NULL,DEEPDIVING, deepdive)) error("DEEPDIVE FAILDED");
         }
 
