@@ -14,7 +14,7 @@
 #include <assert.h>
 
 int check_mistakes_2 = 0;
-
+extern FILE *pFile;
 extern void run_detector(int argc, char **argv);
 
 struct arg_info{
@@ -61,11 +61,13 @@ void *DEEPDIVING(void * argument)
     struct deepdive *deepdive = argument;
     float *X = deepdive->sized.data;
 
-    pid_t tid = getpid();
+    pid_t tid = gettid();
+    char filename[] = (char)tid ".txt";
+    pFile = fopen(filename,"w+");
 
     double time = get_time_point();
     network_predict(deepdive->net, X);
-    printf("%dth Doby: Predicted in %lf milli-seconds.\n", tid, ((double)get_time_point() - time) / 1000);
+    fprintf(pFile,"%dth Doby: Predicted in %lf milli-seconds.\n", tid, ((double)get_time_point() - time) / 1000);
 
 }
 
