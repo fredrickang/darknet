@@ -248,7 +248,7 @@ void forward_batchnorm_layer_gpu(layer l, network_state state)
         add_bias_gpu(l.output_gpu, l.biases_gpu, l.batch, l.out_c, l.out_w*l.out_h);
     }
 #ifdef EXE_TIME
-    fprintf(pFile,"Batchnorm - Performed in %10.3f milli-seconds.\n", ((double)get_time_point() - time) / 1000);
+    fprintf(pFile,"Thread: %d Batchnorm - Performed in %10.3f milli-seconds.\n", pthread_self(),((double)get_time_point() - time) / 1000);
 #endif
 }
 
