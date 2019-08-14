@@ -62,16 +62,6 @@ void *DEEPDIVING(void * argument)
     struct deepdive *deepdive = argument;
     float *X = deepdive->sized.data;
 
-    const char* name = deepdive->thread_name;
-    const char* extension = ".txt";
-
-    char *name_with_extension;
-    name_with_extension = malloc(strlen(name)+1+4);
-    strcpy(name_with_extension,name);
-    strcat(name_with_extension,extension);
-
-    pFile = fopen(name_with_extension,"w+");
-
     double time = get_time_point();
     network_predict(deepdive->net, X);
     fprintf(pFile,"Predicted in %lf milli-seconds.\n", ((double)get_time_point() - time) / 1000);
@@ -105,6 +95,7 @@ void deep_dive(int argc, char **argv)
     int ext_output = find_arg(argc, argv, "-ext_output");
     int save_labels = find_arg(argc, argv, "-save_labels");
     int thread_num = find_int_arg(argc, argv, "-thread_num",-1);
+    char *log_name = find_char_arg(argc, argv, "-log_name", 0);
     if (argc < 4) {
         fprintf(stderr, "usage: %s %s [train/test/valid/demo/map] [data] [cfg] [weights (optional)]\n", argv[0], argv[1]);
         return;
@@ -204,6 +195,10 @@ void deep_dive(int argc, char **argv)
         //for(j = 0; j < l.w*l.h*l.n; ++j) probs[j] = (float*)calloc(l.classes, sizeof(float));
 
         /// DEEP DIVE START
+        
+        assert(log_name != 0);
+        pFile = fopen(log_name,"w+");
+        
         pthread_t tid;
         struct deepdive *deepdive = malloc(sizeof(struct deepdive));
 
@@ -242,5 +237,6 @@ void deep_dive(int argc, char **argv)
     free(alphabet);
 
     free_network(net);
+    fclose(pFile);
 }
 
