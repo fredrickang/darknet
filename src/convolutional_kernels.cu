@@ -469,7 +469,7 @@ void forward_convolutional_layer_gpu(convolutional_layer l, network_state state)
             output16));
 
 #ifdef EXE_TIME
-        fprintf(pFile,"Convolution - Performed in %10.3f milli-seconds.\n", ((double)get_time_point() - time) / 1000);
+        fprintf(pFile,"Thread: %d Convolution - Performed in %10.3f milli-seconds.\n", pthread_self(),((double)get_time_point() - time) / 1000);
         time = get_time_point();
 #endif
         if (l.batch_normalize)
@@ -512,7 +512,7 @@ void forward_convolutional_layer_gpu(convolutional_layer l, network_state state)
                 add_bias_gpu(l.output_gpu, l.biases_gpu, l.batch, l.out_c, l.out_w*l.out_h);
             }
 #ifdef EXE_TIME
-            fprintf(pFile,"Batchnorm - Performed in %10.3f milli-seconds.\n", ((double)get_time_point() - time) / 1000);
+            fprintf(pFile,"Thread: %d Batchnorm - Performed in %10.3f milli-seconds.\n", pthread_self(),((double)get_time_point() - time) / 1000);
 #endif
         }
         else // BIAS only
@@ -548,7 +548,7 @@ void forward_convolutional_layer_gpu(convolutional_layer l, network_state state)
             l.dstTensorDesc,
             l.output_gpu));
 #ifdef EXE_TIME
-    fprintf(pFile,"Convolution - Performed in %10.3f milli-seconds.\n", ((double)get_time_point() - time) / 1000);
+    fprintf(pFile,"Thread: %d Convolution - Performed in %10.3f milli-seconds.\n", pthread_self(),((double)get_time_point() - time) / 1000);
 #endif 
         //cudaDeviceSynchronize();
         if (l.batch_normalize) {
@@ -596,7 +596,7 @@ void forward_convolutional_layer_gpu(convolutional_layer l, network_state state)
         }
     }
 #ifdef EXE_TIME
-    fprintf(pFile,"Convolution - Performed in %10.3f milli-seconds.\n", ((double)get_time_point() - time) / 1000);
+    fprintf(pFile,"Thread %d Convolution - Performed in %10.3f milli-seconds.\n", pthread_self(),((double)get_time_point() - time) / 1000);
 #endif 
     if (l.batch_normalize) {
         forward_batchnorm_layer_gpu(l, state);

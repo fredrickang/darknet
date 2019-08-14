@@ -77,7 +77,7 @@ void forward_upsample_layer(const layer l, network_state net)
         upsample_cpu(net.input, l.w, l.h, l.c, l.batch, l.stride, 1, l.scale, l.output);
     }
 #ifdef EXE_TIME
-    printf(pFile,"Upsample - Performed in %10.3f milli-seconds.\n", ((double)get_time_point() - time) / 1000);
+    printf(pFile,"Thread: %d Upsample - Performed in %10.3f milli-seconds.\n", pthread_self(),((double)get_time_point() - time) / 1000);
 #endif
 }
 
@@ -103,7 +103,7 @@ void forward_upsample_layer_gpu(const layer l, network_state state)
         upsample_gpu(state.input, l.w, l.h, l.c, l.batch, l.stride, 1, l.scale, l.output_gpu);
     }
 #ifdef EXE_TIME
-    printf(pFile,"Upsample - Performed in %10.3f milli-seconds.\n", ((double)get_time_point() - time) / 1000);
+    printf(pFile,"Thread: %d Upsample - Performed in %10.3f milli-seconds.\n",pthread_self(), ((double)get_time_point() - time) / 1000);
 #endif
 }
 

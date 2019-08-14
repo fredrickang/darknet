@@ -151,7 +151,7 @@ void forward_maxpool_layer(const maxpool_layer l, network_state state)
             }
         }
 #ifdef EXE_TIME
-        fprintf(pFile,"Maxpool - Performed in %10.3f milli-seconds.\n", ((double)get_time_point() - time) / 1000);
+        fprintf(pFile,"Thread: %d Maxpool - Performed in %10.3f milli-seconds.\n",pthread_self(), ((double)get_time_point() - time) / 1000);
 #endif
         return;
     }
@@ -160,7 +160,7 @@ void forward_maxpool_layer(const maxpool_layer l, network_state state)
     if (!state.train) {
         forward_maxpool_layer_avx(state.input, l.output, l.indexes, l.size, l.w, l.h, l.out_w, l.out_h, l.c, l.pad, l.stride, l.batch);
 #ifdef EXE_TIME
-        fprintf(pFile,"Maxpool - Performed in %10.3f milli-seconds.\n", ((double)get_time_point() - time) / 1000);
+        fprintf(pFile,"Thread: %d Maxpool - Performed in %10.3f milli-seconds.\n", pthread_self(),((double)get_time_point() - time) / 1000);
 #endif
         return;
     }

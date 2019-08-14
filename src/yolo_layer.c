@@ -410,7 +410,7 @@ void forward_yolo_layer(const layer l, network_state state)
     }
     printf("v3 (%s loss, Normalizer: (iou: %f, cls: %f) Region %d Avg (IOU: %f, GIOU: %f), Class: %f, Obj: %f, No Obj: %f, .5R: %f, .75R: %f, count: %d\n", (l.iou_loss == MSE ? "mse" : (l.iou_loss == GIOU ? "giou" : "iou")), l.iou_normalizer, l.cls_normalizer, state.index, tot_iou / count, tot_giou / count, avg_cat / class_count, avg_obj / count, avg_anyobj / (l.w*l.h*l.n*l.batch), recall / count, recall75 / count, count);
 #ifdef EXE_TIME
-    fprintf(pFile,"Yolo - Performed in %10.3f milli-seconds.\n", ((double)get_time_point() - time) / 1000);
+    fprintf(pFile,"Thread: %d Yolo - Performed in %10.3f milli-seconds.\n", pthread_self(),((double)get_time_point() - time) / 1000);
 #endif
 }
 
@@ -556,7 +556,7 @@ void forward_yolo_layer_gpu(const layer l, network_state state)
         cuda_pull_array_async(l.output_gpu, l.output, l.batch*l.outputs);
         CHECK_CUDA(cudaPeekAtLastError());
 #ifdef EXE_TIME
-        fprintf(pFile,"Yolo - Performed in %10.3f milli-seconds.\n", ((double)get_time_point() - time) / 1000); 
+        fprintf(pFile,"Thread: %d Yolo - Performed in %10.3f milli-seconds.\n",pthread_self(), ((double)get_time_point() - time) / 1000); 
 #endif
         return;
     }

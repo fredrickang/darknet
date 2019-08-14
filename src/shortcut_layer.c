@@ -75,7 +75,7 @@ void forward_shortcut_layer(const layer l, network_state state)
         shortcut_cpu(l.batch, l.w, l.h, l.c, state.net.layers[l.index].output, l.out_w, l.out_h, l.out_c, l.output);
     }
 #ifdef EXE_TIME
-    fprintf(pFile,"Shortcut - Performed in %10.3f milli-seconds.\n", ((double)get_time_point() - time) / 1000);
+    fprintf(pFile,"Thread: %d Shortcut - Performed in %10.3f milli-seconds.\n",pthread_self(), ((double)get_time_point() - time) / 1000);
 #endif
     activate_array(l.output, l.outputs*l.batch, l.activation);
 }
@@ -98,7 +98,7 @@ void forward_shortcut_layer_gpu(const layer l, network_state state)
 #endif
     input_shortcut_gpu(state.input, l.batch, l.w, l.h, l.c, state.net.layers[l.index].output_gpu, l.out_w, l.out_h, l.out_c, l.output_gpu);
 #ifdef EXE_TIME 
-    fprintf(pFile,"Shortcut - Performed in %10.3f milli-seconds.\n", ((double)get_time_point() - time) / 1000);  
+    fprintf(pFile,"Thread: %d Shortcut - Performed in %10.3f milli-seconds.\n", pthread_self(), ((double)get_time_point() - time) / 1000);  
 #endif   
     activate_array_ongpu(l.output_gpu, l.outputs*l.batch, l.activation);
 

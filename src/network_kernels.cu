@@ -58,10 +58,10 @@ void forward_network_gpu(network net, network_state state)
         }
 #ifdef EXE_TIME
         double time = get_time_point();
-        fprintf(pFile, "%3dth %15s\n", i, get_layer_string(l.type));
+        fprintf(pFile, "Thread: %d %3dth %15s\n",pthread_self(), i, get_layer_string(l.type));
         l.forward_gpu(l, state);
         CHECK_CUDA(cudaDeviceSynchronize());
-        fprintf(pFile, "%10.3f\n\n", ((double)get_time_point() - time) / 1000); 
+        fprintf(pFile, "Thread: %d %10.3f\n\n", pthread_self(), ((double)get_time_point() - time) / 1000); 
 #else
         l.forward_gpu(l, state);
 #endif

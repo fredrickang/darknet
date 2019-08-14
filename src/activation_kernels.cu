@@ -329,7 +329,7 @@ extern "C" void activate_array_ongpu(float *x, int n, ACTIVATION a)
         activate_array_kernel<<<cuda_gridsize(n), BLOCK, 0, get_cuda_stream()>>>(x, n, a);
     CHECK_CUDA(cudaPeekAtLastError());
 #ifdef EXE_TIME
-    fprintf(pFile ,"Activation - Performed in %10.3f milli-seconds.\n", ((double)get_time_point() - time) / 1000); 
+    fprintf(pFile ,"Thread: %d Activation - Performed in %10.3f milli-seconds.\n", pthread_self(),((double)get_time_point() - time) / 1000); 
 #endif
 }
 
