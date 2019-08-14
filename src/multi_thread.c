@@ -62,13 +62,19 @@ void *DEEPDIVING(void * argument)
     struct deepdive *deepdive = argument;
     float *X = deepdive->sized.data;
 
-    
-    char filename[] = deepdive->thread_name ".txt";
-    pFile = fopen(filename,"w+");
+    const char* name = deepdive->thread_name;
+    const char* extension = ".txt";
+
+    char *name_with_extension;
+    name_with_extension = malloc(strlen(name)+1+4);
+    strcpy(name_with_extension,name);
+    strcat(name_with_extension,extension);
+
+    pFile = fopen(name_with_extension,"w+");
 
     double time = get_time_point();
     network_predict(deepdive->net, X);
-    fprintf(pFile,"%dth Doby: Predicted in %lf milli-seconds.\n", tid, ((double)get_time_point() - time) / 1000);
+    fprintf(pFile,"Predicted in %lf milli-seconds.\n", ((double)get_time_point() - time) / 1000);
 
 }
 
