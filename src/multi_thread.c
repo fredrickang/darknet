@@ -64,7 +64,7 @@ void *DEEPDIVING(void * argument)
 
     double time = get_time_point();
     network_predict(deepdive->net, X);
-    fprintf(pFile,"Thread: %d Predicted in %lf milli-seconds.\n",pthread_self(), ((double)get_time_point() - time) / 1000);
+    printf("Thread: %d Predicted in %lf milli-seconds.\n",pthread_self(), ((double)get_time_point() - time) / 1000);
 
 }
 

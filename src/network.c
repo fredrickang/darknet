@@ -262,9 +262,9 @@ void forward_network(network net, network_state state)
         }
 #ifdef EXE_TIME
         double time = get_time_point();
-        fprintf(pFile,"Thread: %d %3d %15s\n",pthread_self(),i,get_layer_string(l.type));
+        printf("Thread: %d %3d %15s\n",pthread_self(),i,get_layer_string(l.type));
         l.forward(l, state);
-        fprintf(pFile,"Thread: %d %10.3f\n\n",pthread_self(), ((double)get_time_point() - time) / 1000); 
+        printf("Thread: %d %10.3f\n\n",pthread_self(), ((double)get_time_point() - time) / 1000); 
 #else
         l.forward(l, state);
 #endif       
